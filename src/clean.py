@@ -1,4 +1,5 @@
 from data.utils import load_data_to_dataframe, save_data_to_csv
+from data.clean import convert_str_to_type, spline_missing_values
 
 def main():
     try:
@@ -8,7 +9,11 @@ def main():
         print("It was not possible to read the provided .csv file")
         exit(0)
 
-    print(dataframe.head())
+
+    dataframe["TotalCharges"] = convert_str_to_type(column=dataframe["TotalCharges"], type="float64")
+    dataframe["TotalCharges"] = spline_missing_values(dataframe["TotalCharges"])
+
+    save_data_to_csv(dataframe=dataframe, data_path="../data/interim/telco_customer_churn.csv")
 
 
 if __name__ == "__main__":
