@@ -11,7 +11,7 @@ def convert_str_to_type(column: pd.Series, type: str = "float64") -> pd.Series:
     Returns:
     manipulated: Column converted to given type
     """
-    manipulated = column.replace('', np.nan)
+    manipulated = column.replace(' ', np.nan)
     manipulated = manipulated.astype(type)
 
     return manipulated

@@ -9,7 +9,6 @@ def main():
         print("It was not possible to read the provided .csv file")
         exit(0)
 
-
     dataframe["TotalCharges"] = convert_str_to_type(column=dataframe["TotalCharges"], type="float64")
     dataframe["TotalCharges"] = spline_missing_values(dataframe["TotalCharges"])
 
