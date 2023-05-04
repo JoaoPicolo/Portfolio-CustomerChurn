@@ -5,7 +5,7 @@ sys.path.append(".")
 from src.data.utils import load_data_to_dataframe, save_data_to_csv
 
 
-def test_dataframe_load():
+def test_load_data_to_dataframe():
     """
         Test if the dataframe is being correctly loaded
     """
@@ -13,7 +13,7 @@ def test_dataframe_load():
     assert type(dataframe) == pd.DataFrame
 
 
-def test_dataframe_save():
+def test_save_data_to_csv():
     """
         Test if the dataframe is being correctly saved
     """

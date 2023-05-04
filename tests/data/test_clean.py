@@ -6,17 +6,17 @@ import pandas as pd
 sys.path.append(".")
 from src.data.clean import convert_str_to_type, spline_missing_values
 
-def test_convert_str_col():
+def test_convert_str_to_type():
     """
         Test if the series are being correctly converted
     """
-    column = pd.Series(["", "2.64", "0.5", "", "0.07", "-0.9"])
+    column = pd.Series([" ", "2.64", "0.5", " ", "0.07", "-0.9"])
     type = "float64"
     converted = convert_str_to_type(column=column, type=type)
     assert converted.dtype == type
 
 
-def test_spline_missing():
+def test_spline_missing_values():
     """
         Test if the series is being correclty interpolated
     """
