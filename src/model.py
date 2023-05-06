@@ -1,5 +1,6 @@
-from models.xgboost import xgboost_train, xgboost_test
-from models.utils import  evaluate_cv_search, get_train_test_data
+from models.train import xgboost_train, log_reg_train, svm_train, knn_train
+from models.test import model_test
+from models.utils import  get_train_test_data
 from data.utils import load_data_to_dataframe
 
 def main():
@@ -11,9 +12,38 @@ def main():
         exit(0)
 
     X_train, X_test, y_train, y_test = get_train_test_data(dataframe, ["churn"])
-    xgboost_search = xgboost_train(X_train, y_train, n_iter=10)
-    evaluate_cv_search(xgboost_search)
-    _ = xgboost_test(xgboost_search, X_test, y_test)
+    
+    search = xgboost_train(X_train, y_train, n_iter=10)
+    print("Results from XGBoost:")
+    _ = model_test(search, X_test, y_test)
+    print(search.best_estimator_)
+    print(search.best_score_)
+    print(search.best_params_)
+    print("\n")
+
+    search = log_reg_train(X_train, y_train.values.ravel(), n_iter=10)
+    print("Results from Logistic Regression:")
+    _ = model_test(search, X_test, y_test)
+    print(search.best_estimator_)
+    print(search.best_score_)
+    print(search.best_params_)
+    print("\n")
+
+    search = svm_train(X_train, y_train.values.ravel(), n_iter=10)
+    print("Results from SVM:")
+    _ = model_test(search, X_test, y_test)
+    print(search.best_estimator_)
+    print(search.best_score_)
+    print(search.best_params_)
+    print("\n")
+
+    search = knn_train(X_train, y_train.values.ravel(), n_iter=10)
+    print("Results from KNN:")
+    _ = model_test(search, X_test, y_test)
+    print(search.best_estimator_)
+    print(search.best_score_)
+    print(search.best_params_)
+    print("\n")
 
 
 if __name__ == "__main__":

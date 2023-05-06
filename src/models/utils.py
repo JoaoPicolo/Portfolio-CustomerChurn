@@ -2,17 +2,6 @@ from typing import List, Tuple
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import RandomizedSearchCV
-
-def evaluate_cv_search(search: RandomizedSearchCV):
-    """ Evaluates the trained XGBoost model uing randomized search
-
-    Parameters:
-    search: The randomized search object
-    """
-    print("Best parameters:", search.best_params_)
-    print("Highest Accuracy: ", search.best_score_)
-    print("Feature importance:", search.best_estimator_.feature_importances_)
 
 
 def get_train_test_data(
