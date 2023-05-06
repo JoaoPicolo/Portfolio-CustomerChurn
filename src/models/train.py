@@ -99,8 +99,8 @@ def svm_train(X_train: pd.DataFrame, y_train: pd.DataFrame, n_iter: int = 5, cv:
     """
 
     params = {
-        "C": np.arange(0, 1, 0.01),
-        "kernel": ["rbf", "linear", "sigmoid"],
+        "C": np.arange(0, 1, 0.1),
+        "kernel": ["rbf", "sigmoid"],
         "gamma": np.arange(0.1, 1, 0.1),
         "tol": [1e-4, 1e-8, 1e-1]
     }
