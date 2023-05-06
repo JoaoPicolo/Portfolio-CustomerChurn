@@ -3,7 +3,7 @@ import pandas as pd
 def load_data_to_dataframe(data_path: str) -> pd.DataFrame:
     """ Loads the .csv path into a pandas dataframe
 
-    Parameters:
+    Arguments:
     data_path: Path to the .csv file
 
     Returns:
@@ -16,7 +16,7 @@ def load_data_to_dataframe(data_path: str) -> pd.DataFrame:
 def save_data_to_csv(dataframe: pd.DataFrame, data_path: str):
     """ Saves the dataframe in the provided path as a .csv file
 
-    Parameters:
+    Arguments:
     dataframe: Dataframe to be saved
     data_path: Path to the .csv file
     """
