@@ -77,7 +77,7 @@ def log_reg_train(X_train: pd.DataFrame, y_train: pd.DataFrame, n_iter: int = 5,
     params = {
         "warm_start": [True, False],
         "C": np.arange(0, 1, 0.01),
-        "solver": ["lbfgs", "liblinear", "newton-cg"]
+        "solver": ["liblinear", "newton-cg"]
     }
 
     log_reg = LogisticRegression(random_state=42)
