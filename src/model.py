@@ -13,7 +13,7 @@ def main():
 
     X_train, X_test, y_train, y_test = get_train_test_data(dataframe, ["churn"])
     
-    search = xgboost_train(X_train, y_train, n_iter=5)
+    search = xgboost_train(X_train, y_train, n_iter=10)
     print("Results from XGBoost:")
     _ = model_test(search, X_test, y_test)
     print(search.best_estimator_)
@@ -21,7 +21,7 @@ def main():
     print(search.best_params_)
     print("\n")
 
-    search = log_reg_train(X_train, y_train.values.ravel(), n_iter=5)
+    search = log_reg_train(X_train, y_train.values.ravel(), n_iter=10)
     print("Results from Logistic Regression:")
     _ = model_test(search, X_test, y_test)
     print(search.best_estimator_)
@@ -29,7 +29,7 @@ def main():
     print(search.best_params_)
     print("\n")
 
-    search = svm_train(X_train, y_train.values.ravel(), n_iter=5)
+    search = svm_train(X_train, y_train.values.ravel(), n_iter=10)
     print("Results from SVM:")
     _ = model_test(search, X_test, y_test)
     print(search.best_estimator_)
@@ -37,7 +37,7 @@ def main():
     print(search.best_params_)
     print("\n")
 
-    search = knn_train(X_train, y_train.values.ravel(), n_iter=5)
+    search = knn_train(X_train, y_train.values.ravel(), n_iter=10)
     print("Results from KNN:")
     _ = model_test(search, X_test, y_test)
     print(search.best_estimator_)
